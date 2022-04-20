@@ -5,3 +5,5 @@ if [ ! ${command[skaffold]}]; then
   ${0:h}/install-skaffold.sh
 fi
 
+SHELL=$(basename "$SHELL")
+. <(skaffold completion $SHELL)

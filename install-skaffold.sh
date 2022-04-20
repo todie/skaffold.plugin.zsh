@@ -42,14 +42,7 @@ pinfo "Installing skaffold, OS: ${OS}, ARCH: ${ARCH}, TMPDIR: ${UNDERLINE}${TMPD
 (
   set -e
   trap 'perror $LINENO' ERR
-
   skaffold="skaffold-${OS}-${ARCH}"
-  cd "$TMPDIR" &&
-    curl -sfLO "https://storage.googleapis.com/skaffold/builds/latest/${skaffold}"
-  # curl -sfLO "https://storage.googleapis.com/skaffold/releases/latest/${skaffold}"
-
-  mkdir -p ~/.local/bin &&
-    install "${skaffold}" "$BINDIR/skaffold" &&
-    cd && rm -rf "$TMPDIR" &&
-    pcompleted "Succesfully installed skaffold to ${UNDERLINE}${BINDIR}/skaffold${NO_COLOR}"
+  curl -sfL "https://storage.googleapis.com/skaffold/builds/latest/${skaffold}" -o "${BINDIR}/skaffold"
+  pcompleted "Succesfully installed skaffold to ${UNDERLINE}${BINDIR}/skaffold${NO_COLOR}"
 )

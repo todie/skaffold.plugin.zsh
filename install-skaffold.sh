@@ -29,7 +29,6 @@ pcompleted() {
 BINDIR=~/.local/bin
 
 if [ -f "$BINDIR/skaffold" ]; then
-  perror "$BINDIR/skaffold already exists, delete to reinstall"
   exit
 fi
 
